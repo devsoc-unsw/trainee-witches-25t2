@@ -1,0 +1,1 @@
+// Footer in the login and register pages
