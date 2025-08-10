@@ -1,3 +1,5 @@
+import './SwipePage.css';
+
 const SwipePage = () => {
   return (
     <div>

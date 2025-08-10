@@ -2,6 +2,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import './Pages.css';
 
 import LandingPage from '../LandingPage/LandingPage';
 import Register from '../Register/Register';
@@ -10,6 +11,8 @@ import ProfilePage from '../ProfilePage/ProfilePage';
 import AddRecipe from '../AddRecipe/AddRecipe';
 import SwipePage from '../SwipePage/SwipePage';
 import RecipePage from '../RecipePage/RecipePage';
+import SearchPage from '../SearchPage/SearchPage';
+import SavedRecipes from '../SavedRecipes/SavedRecipes';
 
 const Pages = () => {
   return (
@@ -25,6 +28,8 @@ const Pages = () => {
         <Route path="/addRecipe" element={<AddRecipe />} />
         <Route path="/dishcover" element={<SwipePage />} />
         <Route path="/recipeDetail/:id" element={<RecipePage />} />
+        <Route path="/searchPage" element={<SearchPage />} />
+        <Route path="/savedRecipes" element={<SavedRecipes />} />
       </Routes>
     </div>
   );
