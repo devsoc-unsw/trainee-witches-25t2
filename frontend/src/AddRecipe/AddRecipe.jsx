@@ -1,8 +1,10 @@
 const AddRecipe = () => {
   return (
-    <div>
-      <h1>Add Recipe</h1>
-    </div>
+    <>
+      <div className="flex justify-center items-center">
+        <h1>Add Recipe</h1>
+      </div>
+    </>
   );
 };
 
