@@ -1,3 +1,5 @@
+import './AddRecipe.css';
+
 const AddRecipe = () => {
   return (
     <>

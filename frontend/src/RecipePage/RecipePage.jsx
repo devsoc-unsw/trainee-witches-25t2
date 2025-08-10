@@ -1,3 +1,5 @@
+import './RecipePage.css';
+
 const RecipePage = () => {
   return (
     <div>
