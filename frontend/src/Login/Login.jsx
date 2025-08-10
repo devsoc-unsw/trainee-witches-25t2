@@ -1,10 +1,13 @@
 import './Login.css';
+import '../LoginReg/LoginReg.css';
 
 const Login = () => {
   return (
-    <div>
-      <h1>Login</h1>
-    </div>
+    <>
+      <div className="LoginReg-header">
+        <h1>Dishcovery</h1>
+      </div>
+    </>
   );
 };
 
