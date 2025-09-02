@@ -43,8 +43,8 @@
     object-fit: cover;
 }
   
-  /* overlay for title and meta info on top of image */
-  .recipe-title-overlay {
+/* overlay for title and meta info on top of image */
+.recipe-title-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -54,37 +54,26 @@
     padding: 2rem 1.5rem 1.5rem;
 }
   
-  .recipe-title {
+.recipe-title {
     font-size: 2rem;
     font-weight: bold;
     margin: 0 0 1rem 0;
     line-height: 1.2;
 }
   
-  .recipe-meta {
+.recipe-meta {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
   
-  .likes-count {
+.likes-count {
     background: rgba(255, 255, 255, 0.2);
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-weight: bold;
     backdrop-filter: blur(10px);
 }
-
-/* .likes-count {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-weight: bold;
-    backdrop-filter: blur(10px);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-} */
 
 .likes-count .arrow {
     color: white; /* default */
@@ -101,34 +90,34 @@
     gap: 0.75rem;
 }
   
-  .author-pfp {
+.author-pfp {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     border: 2px solid white;
 }
   
-  .author-name {
+.author-name {
     margin: 0;
     font-weight: bold;
     font-size: 0.9rem;
 }
   
-  .recipe-date {
+.recipe-date {
     margin: 0;
     font-size: 0.8rem;
     opacity: 0.9;
 }
   
-  /* action bar - like, share, save buttons */
-  .action-bar {
+/* action bar - like, share, save buttons */
+.action-bar {
     display: flex;
     gap: 1rem;
     padding: 1rem 1.5rem;
     border-bottom: 1px solid #eee;
 }
   
-  .action-bar button {
+.action-bar button {
     flex: 1;
     padding: 0.75rem;
     border: 1px solid #ddd;
@@ -139,35 +128,36 @@
     transition: all 0.2s ease;
 }
   
-  .action-bar button:hover {
+.action-bar button:hover {
     background: #f5f5f5;
     transform: translateY(-1px);
 }
   
-  .like-button.liked {
+.like-button.liked {
     background: #ff6b6b;
     color: white;
     border-color: #ff6b6b;
 }
   
-  /* Main Content Area */
-  .recipe-content {
+/* Main Content Area */
+.recipe-content {
     padding: 0 1.5rem 2rem;
 }
   
-  /* Section Styling */
-  .ingredients-section,
-  .instructions-section,
-  .comments-section {
+/* Section Styling */
+.ingredients-section,
+.instructions-section,
+.comments-section {
     margin-bottom: 2rem;
 }
   
-  .ingredients-section h2,
-  .instructions-section h2,
-  .comments-section h2 {
-    color: #c17a4a; /* Warm brown color matching your design */
-    font-size: 1.5rem;
+.ingredients-section h2,
+.instructions-section h2,
+.comments-section h2 {
+    color: #AD3620;
+    font-size: 1.8rem;
     margin-bottom: 1rem;
+    margin-top: 1rem;
     font-weight: bold;
 }
   
@@ -202,7 +192,7 @@
     padding: 1rem;
     background: #f8f9fa;
     border-radius: 8px;
-    border-left: 4px solid #c17a4a;
+    border-left: 4px solid #AD3620;
     position: relative;
     line-height: 1.5;
 }
@@ -212,7 +202,7 @@
     position: absolute;
     left: -12px;
     top: 1rem;
-    background: #c17a4a;
+    background: #AD3620;
     color: white;
     width: 24px;
     height: 24px;
@@ -224,14 +214,14 @@
     font-weight: bold;
 }
   
-  /* comments section */
-  .add-comment-form {
+/* comments section */
+.add-comment-form {
     display: flex;
     gap: 0.75rem;
     margin-bottom: 1.5rem;
 }
   
-  .comment-input {
+.comment-input {
     flex: 1;
     padding: 0.75rem 1rem;
     border: 1px solid #ddd;
@@ -240,14 +230,14 @@
     font-size: 0.9rem;
 }
   
-  .comment-input:focus {
-    border-color: #c17a4a;
+.comment-input:focus {
+    border-color: #AD3620;
     box-shadow: 0 0 0 2px rgba(193, 122, 74, 0.1);
 }
   
-  .comment-submit {
+.comment-submit {
     padding: 0.75rem 1.5rem;
-    background: #c17a4a;
+    background: #AD3620;
     color: white;
     border: none;
     border-radius: 25px;
@@ -256,45 +246,44 @@
     transition: background 0.2s ease;
 }
   
-  .comment-submit:hover {
+.comment-submit:hover {
     background: #a66539;
 }
   
-  .comments-list {
+.comments-list {
     margin-top: 1rem;
 }
   
-  .comment {
+.comment {
     background: #f8f9fa;
     padding: 1rem;
     border-radius: 12px;
     margin-bottom: 1rem;
 }
   
-  .comment-header {
+.comment-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0.5rem;
 }
   
-  .comment-user {
+.comment-user {
     font-weight: bold;
     color: #333;
 }
   
-  .comment-timestamp {
+.comment-timestamp {
     font-size: 0.8rem;
     color: #666;
 }
   
-  .comment-text {
+.comment-text {
     margin: 0;
     line-height: 1.4;
     color: #444;
 }
   
-/* Responsive Design - makes it look good on mobile */
 @media (max-width: 768px) {
     .recipe-page {
         max-width: 100%;
@@ -318,12 +307,10 @@
     }
 }
   
-  /* Smooth animations for better user experience */
 .recipe-page * {
     transition: all 0.2s ease;
 }
-  
-  /* Custom scrollbar for better aesthetics */
+
 .recipe-page::-webkit-scrollbar {
     width: 6px;
 }
@@ -333,7 +320,7 @@
 }
   
 .recipe-page::-webkit-scrollbar-thumb {
-    background: #c17a4a;
+    background: #AD3620;
     border-radius: 3px;
 }
   

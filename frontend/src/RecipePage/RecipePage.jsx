@@ -65,7 +65,7 @@ const RecipePage = () => {
         text: newComment,
         timestamp: "Just now"
       };
-      setComments([...comments, comment]); // add new comment to existing comments
+      setComments([comment, ...comments]); // add new comment to existing comments
       setNewComment(''); // clear input field
     }
   };
@@ -118,7 +118,7 @@ const RecipePage = () => {
             ))}
           </ul>
         </section>
-
+        <hr />
         {/* instructions */}
         <section className="instructions-section">
           <h2>Instructions</h2>
@@ -130,7 +130,7 @@ const RecipePage = () => {
             ))}
           </ol>
         </section>
-
+        <hr />
         {/* comments section */}
         <CommentsSection
           comments={comments}
