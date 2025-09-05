@@ -1,0 +1,40 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 2px solid rgb(186, 186, 186);
+  background-color: white;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header-logo {
+  width: 50px;
+  height: auto;
+}
+
+.header-title {
+  font-weight: 900;
+  font-size: 1.5rem;
+  font-family: 'Arial Black', sans-serif;
+}
+
+.header-right .saved-recipes-button {
+  background-color: #1c1c1c;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  color: white;
+  font-weight: 500;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+
+.header-right .saved-recipes-button:hover {
+  background-color: #333;
+}
