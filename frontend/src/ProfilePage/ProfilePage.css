@@ -1,0 +1,63 @@
+#profile-page {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+#profile-pictureBox {
+  text-align: center;
+}
+
+#profile-picture {
+  border: 2px solid black;
+  border-radius: 45% !important;
+  display: block;
+  margin: 0 auto;
+  width: 35%;
+  max-width: 400px;
+  height: 20vw;
+  min-height: 200px;
+  object-fit: cover;
+  margin-top: 70px;
+  margin-bottom: 30px;
+}
+
+#profile-upload {
+  background-color: #B6361D !important;
+  margin-bottom: 6vh;
+  width: 30%;
+}
+
+#profile-editBox {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  align-self: center;
+}
+
+.profile-nameEmailInput {
+  margin-bottom: 30px !important;
+}
+
+.profile-nameEmailInput .MuiInputLabel-root {
+  font-size: 1.1rem;
+}
+
+#profile-submitChanges {
+  width: 50%;
+  margin-left: auto;
+  margin-bottom: 80px;
+  margin-top: 20px;
+}
+
+#profile-footerBox {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+}
+
+#profile-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

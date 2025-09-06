@@ -1,0 +1,29 @@
+.footer-container {
+  width: 100%;
+  border-top: 1px solid #ccc;
+  padding: 10px 0;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.footer-icon {
+  width: 32px;
+  height: 32px;
+  color: black;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.footer-icon:hover {
+  transform: scale(1.1);
+}
