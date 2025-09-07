@@ -1,5 +1,9 @@
 import express, {Request, Response} from "express";
 
+import {
+  register
+} from "./routes/auth";
+
 const app = express();
 
 app.get("/", (req: Request, res: Response) => {
@@ -7,3 +11,4 @@ app.get("/", (req: Request, res: Response) => {
 })
 
 export default app;
+app.post("/auth/register", register);
