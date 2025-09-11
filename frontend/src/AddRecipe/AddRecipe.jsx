@@ -2,7 +2,7 @@ import './AddRecipe.css';
 import React, { useState } from 'react';
 
 const AddRecipe = () => {
-  const [tags, setTags] = useState(['pasta', 'comfortmeal']);
+  const [tags, setTags] = useState([]);
   const [input, setInput] = useState('');
   const [recipeTitle, setRecipeTitle] = useState('');
   const [ingredients, setIngredients] = useState('');
@@ -32,7 +32,7 @@ const AddRecipe = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     const splitNewLines = (text) => {
@@ -41,15 +41,34 @@ const AddRecipe = () => {
     };
 
     const formData = {
-      title: recipeTitle,
+      name: recipeTitle,
       ingredients: splitNewLines(ingredients),
       steps: splitNewLines(steps),
       tags: tags,
       image: uploadedImage
     };
 
-    console.log('Recipe submitted:', formData);
-    alert('Submitted');
+    try {
+      // TODO: put the url somewhere so it's not hardcoded each time
+      // TODO: maybe make api helpers too
+      const res = await fetch("http://localhost:8080/recipe/add", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(formData),
+      })
+
+      const data = await res.json();
+      console.log("res: ", data);
+
+      if (res.ok) {
+        const recipeId = data.recipe._id; // mongodb generated
+        window.location.href = `/recipeDetail/${recipeId}`;
+      } else {
+        alert("Error: ", data.message);
+      }
+    } catch (error) {
+      console.log("Error submitting: ", error)
+    }
   };
 
   return (
@@ -74,7 +93,7 @@ const AddRecipe = () => {
             <img 
               className='img' 
               src={uploadedImage || 'https://i.pinimg.com/1200x/2b/20/62/2b2062a2a26856d1e17a1da7df7c7b56.jpg'}
-              alt="Recipe"
+              alt="Recipe image"
             />
             {!uploadedImage && (
               <p type='button' id='upload-img-btn'>
