@@ -61,3 +61,20 @@ mongoose.connect(MONGODB_URI)
       console.error("Unexpected error", error);
     }
   });  
+
+app.get("/recipes/:id", async (req, res) => {
+
+})
+
+app.post("/recipes/:id/comments", async (req, res) => {
+  const { author, content } = req.body;
+  if (!author || !content) {
+    return res.status(400).json({ error: "Author and content are required" });
+  }
+
+  try {
+    
+  } catch (err) {
+
+  }
+})
