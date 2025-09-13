@@ -1,11 +1,13 @@
-
 import React, { useState, useEffect } from 'react';
 import './RecipePage.css';
 import CommentsSection from "../components/ui/Comments-section";
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const ProfilePicPlaceholder = "https://media.istockphoto.com/id/1267173093/photo/woman-mixing-ingredients-and-vegetables-in-pan-while-preparing-lunch.jpg?s=612x612&w=0&k=20&c=JvA2vsFF7feEYvHnr79FNvZq1hEd1-evnUniaVwMCZg=";
 const FoodImgPlaceholder = "https://orders.goodthymes.ca/assets/img/goodthymes/default-menu-image-placeholder.png";
+
+const backend_url = "http://localhost:8080";
 
 const RecipePage = () => {
   const {id} = useParams();
@@ -22,8 +24,6 @@ const RecipePage = () => {
         }
         const data = await res.json();
         setRecipe(data);
-        console.log("test");
-        console.log(recipe);
       } catch (err) {
         console.error("Error fetching recipe:", err);
         setError(err.message || "Something went wrong");
@@ -67,18 +67,32 @@ const RecipePage = () => {
     }
   };
 
+  const addFavorite = async () => {
+    const response = await axios.post(`${backend_url}/auth/addFavorite`, {
+      token: localStorage.getItem("token"),
+      recipeId: recipe._id
+    });
+  }
+
+
   const handleAddComment = async (e) => {
     e.preventDefault();
     if (!newComment.trim()) return;
 
     try {
+      const userName = await axios.get(`${backend_url}/auth/getName`, {
+        headers: {
+          token: localStorage.getItem("token")
+        },
+      });
+
       const res = await fetch(`http://localhost:8080/recipes/${id}/comments`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          user: "You", // TODO: replace 'user' in the comment schema to be a reference to a user instead of a string !!!!!!!!!!!
+          user: userName.data.name,
           comment: newComment
         })
       });
@@ -103,7 +117,7 @@ const RecipePage = () => {
     <div className="recipe-page">
       {/* header */}
       <header className="recipe-header">
-        <button className="back-button" onClick={()=> {window.location.href=`/dishcover`}}>←</button>
+        <button className="back-button">←</button>
         <div className="recipe-hero">
           <img src={recipe.image || FoodImgPlaceholder } alt={recipe.name} className="recipe-image" />
           <div className="recipe-title-overlay">
@@ -131,7 +145,7 @@ const RecipePage = () => {
       {/* action bar */}
       <div className="action-bar">
         <button className="share-button">📤 Share</button>
-        <button className="save-button">🔖 Save</button>
+        <button onClick={addFavorite} className="save-button">🔖 Save</button>
       </div>
 
       {/* main content */}
