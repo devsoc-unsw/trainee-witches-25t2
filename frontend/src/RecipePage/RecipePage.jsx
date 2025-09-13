@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import './RecipePage.css';
 import CommentsSection from "../components/ui/Comments-section";
@@ -75,6 +74,7 @@ const RecipePage = () => {
     });
   }
 
+
   const handleAddComment = async (e) => {
     e.preventDefault();
     if (!newComment.trim()) return;
@@ -117,7 +117,7 @@ const RecipePage = () => {
     <div className="recipe-page">
       {/* header */}
       <header className="recipe-header">
-        <button className="back-button" onClick={()=> {window.location.href=`/dishcover`}}>←</button>
+        <button className="back-button">←</button>
         <div className="recipe-hero">
           <img src={recipe.image || FoodImgPlaceholder } alt={recipe.name} className="recipe-image" />
           <div className="recipe-title-overlay">
