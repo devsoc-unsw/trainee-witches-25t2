@@ -5,8 +5,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import SwipePage from '../SwipePage/SwipePage';
 import axios from 'axios';
+import SwipePage from '../SwipePage/SwipePage';
 
 const backend_url = "http://localhost:8080";
 
@@ -32,12 +32,11 @@ const Register = () => {
         withCredentials: true
       });
 
-      console.log(response.data.token);
       localStorage.setItem('token', response.data.token);
 
-      navigate('/swipePage');
+      navigate('/dishcover');
     } catch (error) {
-      alert('Registration failed: ' + JSON.stringify(error));
+      alert('Registration failed: ' + JSON.stringify(error.response.data.message));
     }
   }
 
