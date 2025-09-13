@@ -85,7 +85,7 @@ const SwipePage = () => {
       {/* Food info */}
       {currentRecipe && (
         <div className="food-info">
-          <h1 onClick={() => navigate(`/recipeDetail/${currentRecipe._id}`)} className="food-name">{currentRecipe.name}</h1>
+          <h1 onClick={() => navigate(`/recipes/${currentRecipe._id}`)} className="food-name">{currentRecipe.name}</h1>
           <p className="food-ingredients">
             <span className="green-circle"></span>
             {currentRecipe?.ingredients?.length || 0} ingredients

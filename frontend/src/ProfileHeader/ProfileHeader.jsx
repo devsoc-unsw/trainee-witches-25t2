@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 const ProfileHeader = () => {
   return (
     <header className="header-container">
-      <div className="header-left">
+      <div className="header-left" onClick={()=> {window.location.href = `/dishcover`}}>
         <img
           src="../MainLogo.png"
           alt="Dishcovery logo"
@@ -14,7 +14,7 @@ const ProfileHeader = () => {
       </div>
       
       <div className="header-right">
-        <Button className="saved-recipes-button">Saved recipes</Button>
+        <Button className="saved-recipes-button" onClick={()=> {window.location.href = `/savedRecipes`}}>Saved recipes</Button>
       </div>
     </header>
   );
