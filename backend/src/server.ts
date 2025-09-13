@@ -13,7 +13,8 @@ import {
 
 import { 
   getRecipeById,
-  getAllRecipes
+  getAllRecipes,
+  addComment
 } from "./routes/recipeDetails";
 
 const app = express();
@@ -30,5 +31,6 @@ app.post("/auth/addFavorite", addFavorite)
 app.post("/recipe/add", addRecipe);
 app.get("/recipes/:id", getRecipeById);
 app.get("/recipes", getAllRecipes);
+app.post("/recipes/:id/comments", addComment);
 
 export default app;
