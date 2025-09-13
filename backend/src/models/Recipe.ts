@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { commentSchema } from "./Comment";
 
 const recipeSchema = new mongoose.Schema({
   name: String,
@@ -13,6 +14,9 @@ const recipeSchema = new mongoose.Schema({
   }],
   tags: [{
     type: String
+  }],
+  comments: [{
+    type: [commentSchema]
   }],
   favorited: [{                               // users that liked the recipe
     type: mongoose.Schema.Types.ObjectId,

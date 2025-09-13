@@ -1,5 +1,5 @@
 import express, {Request, Response} from "express";
-import Recipe from '../models/Recipe'
+import Recipe from '../models/Recipe';
 
 export const addRecipe = async (req: Request, res: Response) => {
   const { name, ingredients, steps, tags, image } = req.body;
@@ -15,6 +15,7 @@ export const addRecipe = async (req: Request, res: Response) => {
       steps,
       tags: tags || [],
       image: image || null,
+      comments: [],
       favorited: []
     });
 

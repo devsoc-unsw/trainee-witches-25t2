@@ -10,6 +10,11 @@ import {
   addRecipe
 } from "./routes/addRecipe";
 
+import { 
+  getRecipeById,
+  getAllRecipes
+} from "./routes/recipeDetails";
+
 const app = express();
 
 app.get("/", (req: Request, res: Response) => {
@@ -21,5 +26,7 @@ app.post("/auth/login", login);
 app.delete("/auth/logout", logout);
 
 app.post("/recipe/add", addRecipe);
+app.get("/recipes/:id", getRecipeById);
+app.get("/recipes", getAllRecipes);
 
 export default app;
