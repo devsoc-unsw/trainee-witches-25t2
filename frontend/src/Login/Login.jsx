@@ -26,8 +26,6 @@ const Login = () => {
       const response = await axios.post(`${backend_url}/auth/login`, {
         email: email,
         password: password,
-      }, {
-        withCredentials: true
       });
 
       localStorage.setItem('token', response.data.token);
