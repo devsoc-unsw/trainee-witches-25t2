@@ -97,3 +97,37 @@ export const logout = async (req: Request, res: Response) => {
     return res.status(500).json({ message: "Error logging out" });
   }
 };
+
+export const addFavorite = async (req: Request, res: Response) => {
+  const {token, recipeId} = req.body;
+
+  if (!token || !recipeId) {
+    return res.status(400).json({ message: "Token and recipeId are required" });
+  }
+
+  try {
+    // Find the session by token
+    const session = await Session.findOne({ token });
+    if (!session) {
+      return res.status(401).json({ message: "Invalid token" });
+    }
+
+    // Find the user associated with the session
+    const user = await User.findById(session.userId);
+    if (!user) {
+      return res.status(400).json({ message: "User not found" });
+    }
+
+    // Add recipeId to favorites if not already added
+    if (!user.favorites.includes(recipeId)) {
+      user.favorites.push(recipeId);
+      await user.save();
+    }
+
+    return res.status(200).json({ message: "Recipe added to favorites", favorites: user.favorites });
+    
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Error adding favorite" });
+  }
+}
