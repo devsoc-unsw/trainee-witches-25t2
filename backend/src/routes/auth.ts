@@ -127,7 +127,33 @@ export const addFavorite = async (req: Request, res: Response) => {
     return res.status(200).json({ message: "Recipe added to favorites", favorites: user.favorites });
     
   } catch (error) {
-    console.error(error);
     return res.status(500).json({ message: "Error adding favorite" });
+  }
+}
+
+export const getName = async (req: Request, res: Response) => {
+  const token = req.header("token");
+
+  if (!token) {
+    return res.status(400).json({ message: "Token is required" });
+  }
+
+  try {
+    // Find the session by token
+    const session = await Session.findOne({ token });
+    if (!session) {
+      return res.status(401).json({ message: "Invalid token" });
+    }
+
+    // Find the user associated with the session
+    const user = await User.findById(session.userId);
+    if (!user) {
+      return res.status(400).json({ message: "User not found" });
+    }
+
+    return res.status(200).json({ name: user.name });
+    
+  } catch (error) {
+    return res.status(500).json({ message: "Error adding commenting" });
   }
 }

@@ -4,7 +4,8 @@ import {
   register,
   login,
   logout,
-  addFavorite
+  addFavorite,
+  getName
 } from "./routes/auth";
 
 import {
@@ -27,6 +28,7 @@ app.post("/auth/register", register);
 app.post("/auth/login", login);
 app.delete("/auth/logout", logout);
 app.post("/auth/addFavorite", addFavorite)
+app.get("/auth/getName", getName);
 
 app.post("/recipe/add", addRecipe);
 app.get("/recipes/:id", getRecipeById);

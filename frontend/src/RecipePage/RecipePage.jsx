@@ -3,10 +3,13 @@ import React, { useState, useEffect } from 'react';
 import './RecipePage.css';
 import CommentsSection from "../components/ui/Comments-section";
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const ProfilePicPlaceholder = "https://media.istockphoto.com/id/1267173093/photo/woman-mixing-ingredients-and-vegetables-in-pan-while-preparing-lunch.jpg?s=612x612&w=0&k=20&c=JvA2vsFF7feEYvHnr79FNvZq1hEd1-evnUniaVwMCZg=";
 const FoodImgPlaceholder = "https://orders.goodthymes.ca/assets/img/goodthymes/default-menu-image-placeholder.png";
 // const FoodImgPlaceholder = "https://www.foodandwine.com/thmb/2gSJpmOtwc2vIub8-5TSJ-_IuHo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/pasta-with-sausage-mustard-and-basil-XL-RECIPE0918-1bd7075faf664e198ff1f5375012e12c.jpg";
+
+const backend_url = "http://localhost:8080";
 
 const RecipePage = () => {
   const {id} = useParams();
@@ -23,8 +26,6 @@ const RecipePage = () => {
         }
         const data = await res.json();
         setRecipe(data);
-        console.log("test");
-        console.log(recipe);
       } catch (err) {
         console.error("Error fetching recipe:", err);
         setError(err.message || "Something went wrong");
@@ -108,18 +109,32 @@ const RecipePage = () => {
   //   }
   // };
 
+  const addFavorite = async () => {
+    const response = await axios.post(`${backend_url}/auth/addFavorite`, {
+      token: localStorage.getItem("token"),
+      recipeId: recipe._id
+    });
+  }
+
+
   const handleAddComment = async (e) => {
     e.preventDefault();
     if (!newComment.trim()) return;
 
     try {
+      const userName = await axios.get(`${backend_url}/auth/getName`, {
+        headers: {
+          token: localStorage.getItem("token")
+        },
+      });
+
       const res = await fetch(`http://localhost:8080/recipes/${id}/comments`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          user: "You", // TODO: replace 'user' in the comment schema to be a reference to a user instead of a string !!!!!!!!!!!
+          user: userName.data.name,
           comment: newComment
         })
       });
@@ -172,7 +187,7 @@ const RecipePage = () => {
       {/* action bar */}
       <div className="action-bar">
         <button className="share-button">📤 Share</button>
-        <button className="save-button">🔖 Save</button>
+        <button onClick={addFavorite} className="save-button">🔖 Save</button>
       </div>
 
       {/* main content */}
