@@ -75,9 +75,9 @@ const AddRecipe = () => {
     <>
       <div id='add-recipe-page'>
         <header id='add-recipe-header'>
-          <button id='back-btn'>←</button>
+          <button id='back-btn' onClick={()=>{window.location.href=`/dishcover`}}>←</button>
           <h1>Add recipe</h1>
-          <img src="../MainLogo.png" alt='Logo' id='logo' />
+          <img src="../MainLogo.png" alt='Logo' id='logo' onClick={()=>{window.location.href=`/dishcover`}} />
         </header>
 
         <form onSubmit={handleSubmit} id='form'>
