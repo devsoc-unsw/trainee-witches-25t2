@@ -14,6 +14,9 @@ const recipeSchema = new mongoose.Schema({
   tags: [{
     type: String
   }],
+  comments: [{
+    type: String
+  }],
   favorited: [{                               // users that liked the recipe
     type: mongoose.Schema.Types.ObjectId,
   }]

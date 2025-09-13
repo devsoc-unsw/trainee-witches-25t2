@@ -15,6 +15,7 @@ export const addRecipe = async (req: Request, res: Response) => {
       steps,
       tags: tags || [],
       image: image || null,
+      comments: [],
       favorited: []
     });
 
