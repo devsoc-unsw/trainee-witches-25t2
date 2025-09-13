@@ -3,8 +3,12 @@ import '../LoginReg/LoginReg.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="loginReg-page">
       <header className="LoginReg-header-box">
@@ -51,7 +55,7 @@ const Login = () => {
             </div>
 
             <div className="loginReg-buttonDesc">Don't have an account?</div>
-            <Button className="loginReg-button" variant="danger">Register</Button>
+            <Button onClick={() => navigate('/register')} className="loginReg-button" variant="danger">Register</Button>
           </div>
         </div>
       </div>
