@@ -28,8 +28,6 @@ const Register = () => {
         name: name,
         email: email,
         password: password,
-      }, {
-        withCredentials: true
       });
 
       localStorage.setItem('token', response.data.token);

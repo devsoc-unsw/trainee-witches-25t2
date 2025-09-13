@@ -1,0 +1,77 @@
+.swipePage-container {
+  display: flex;
+  flex-direction: column;
+  height: 95vh;
+  justify-content: space-between;
+}
+
+.swipe-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* space between buttons */
+  margin-bottom: 20px;
+}
+
+.swipe-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #f0f0f0;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.swipe-btn:hover {
+  transform: scale(1.2);
+}
+
+.swipe-btn.nope {
+  background-color: #ff6b6b;
+  color: white;
+}
+
+.swipe-btn.previous {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.swipe-btn.next {
+  background-color: #4caf50;
+  color: #f0f0f0;
+}
+
+.food-info { /* space above buttons */
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  margin-top: auto; /* pushes it to the bottom */
+}
+
+.food-name {
+  font-size: clamp(28px, 5vw, 34px); /* large and responsive */
+  margin-left: 30px;
+  font-weight: bold;
+  color: #f0f0f0;
+}
+
+.food-ingredients {
+  font-size: clamp(13px, 3vw, 20px);
+  color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+  gap: 8px; /* space between circle and text */
+  margin-bottom: 20px;
+}
+
+.green-circle {
+  width: 12px;
+  height: 12px;
+  background-color: #4caf50; /* green */
+  border-radius: 50%; /* makes it a circle */
+  display: inline-block;
+}

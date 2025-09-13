@@ -4,9 +4,7 @@ const userSchema = new mongoose.Schema({
   name: String,
   email: { type: String, unique: true },
   password: String,
-  favorites: [{                               // the user's liked recipes
-    type: mongoose.Schema.Types.ObjectId,
-  }]
+  favorites: [String]
 });
 
 const User = mongoose.model(
