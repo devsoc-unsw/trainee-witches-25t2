@@ -1,7 +1,9 @@
 import express, {Request, Response} from "express";
 
 import {
-  register
+  register,
+  login,
+  logout
 } from "./routes/auth";
 
 import {
@@ -15,6 +17,8 @@ app.get("/", (req: Request, res: Response) => {
 })
 
 app.post("/auth/register", register);
+app.post("/auth/login", login);
 app.post("/recipe/add", addRecipe);
+app.delete("/auth/logout", logout);
 
 export default app;

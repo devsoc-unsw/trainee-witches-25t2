@@ -13,6 +13,7 @@ import SwipePage from '../SwipePage/SwipePage';
 import RecipePage from '../RecipePage/RecipePage';
 import SearchPage from '../SearchPage/SearchPage';
 import SavedRecipes from '../SavedRecipes/SavedRecipes';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 const Pages = () => {
   return (
@@ -24,12 +25,56 @@ const Pages = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/addRecipe" element={<AddRecipe />} />
-        <Route path="/dishcover" element={<SwipePage />} />
-        <Route path="/recipeDetail/:id" element={<RecipePage />} />
-        <Route path="/searchPage" element={<SearchPage />} />
-        <Route path="/savedRecipes" element={<SavedRecipes />} />
+        
+        {/* Protected Routes always redirects to login */}
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <ProfilePage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/addRecipe"
+          element={
+            <PrivateRoute>
+              <AddRecipe />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/dishcover"
+          element={
+            <PrivateRoute>
+              <SwipePage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/recipeDetail/:id"
+          element={
+            <PrivateRoute>
+              <RecipePage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/searchPage"
+          element={
+            <PrivateRoute>
+              <SearchPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/savedRecipes"
+          element={
+            <PrivateRoute>
+              <SavedRecipes />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </div>
   );
