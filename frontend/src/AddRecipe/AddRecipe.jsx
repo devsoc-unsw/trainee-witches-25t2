@@ -92,7 +92,8 @@ const AddRecipe = () => {
           <label htmlFor="image-upload" id='img-upload'>
             <img 
               className='img' 
-              src={uploadedImage || 'https://i.pinimg.com/1200x/2b/20/62/2b2062a2a26856d1e17a1da7df7c7b56.jpg'}
+              src={uploadedImage || 'https://orders.goodthymes.ca/assets/img/goodthymes/default-menu-image-placeholder.png'}
+              // 'https://i.pinimg.com/1200x/2b/20/62/2b2062a2a26856d1e17a1da7df7c7b56.jpg'}
               alt="Recipe image"
             />
             {!uploadedImage && (
