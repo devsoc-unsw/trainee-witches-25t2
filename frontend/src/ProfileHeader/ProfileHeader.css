@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
   border-bottom: 2px solid rgb(186, 186, 186);
   background-color: white;
 }
@@ -20,7 +20,7 @@
 
 .header-title {
   font-weight: 900;
-  font-size: 1.5rem;
+  font-size: clamp(15px, 4vw, 20px);
   font-family: 'Arial Black', sans-serif;
 }
 
@@ -31,6 +31,7 @@
   border-radius: 8px;
   color: white;
   font-weight: 500;
+  font-size: clamp(10px, 2vw, 20px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s;
 }

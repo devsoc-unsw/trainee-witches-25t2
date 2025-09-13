@@ -18,7 +18,8 @@ app.get("/", (req: Request, res: Response) => {
 
 app.post("/auth/register", register);
 app.post("/auth/login", login);
-app.post("/recipe/add", addRecipe);
 app.delete("/auth/logout", logout);
+
+app.post("/recipe/add", addRecipe);
 
 export default app;
