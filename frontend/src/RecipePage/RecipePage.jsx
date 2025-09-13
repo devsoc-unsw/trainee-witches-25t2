@@ -5,7 +5,8 @@ import CommentsSection from "../components/ui/Comments-section";
 import { useParams } from 'react-router-dom';
 
 const ProfilePicPlaceholder = "https://media.istockphoto.com/id/1267173093/photo/woman-mixing-ingredients-and-vegetables-in-pan-while-preparing-lunch.jpg?s=612x612&w=0&k=20&c=JvA2vsFF7feEYvHnr79FNvZq1hEd1-evnUniaVwMCZg=";
-const FoodImgPlaceholder = "https://www.foodandwine.com/thmb/2gSJpmOtwc2vIub8-5TSJ-_IuHo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/pasta-with-sausage-mustard-and-basil-XL-RECIPE0918-1bd7075faf664e198ff1f5375012e12c.jpg";
+const FoodImgPlaceholder = "https://orders.goodthymes.ca/assets/img/goodthymes/default-menu-image-placeholder.png";
+// const FoodImgPlaceholder = "https://www.foodandwine.com/thmb/2gSJpmOtwc2vIub8-5TSJ-_IuHo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/pasta-with-sausage-mustard-and-basil-XL-RECIPE0918-1bd7075faf664e198ff1f5375012e12c.jpg";
 
 const RecipePage = () => {
   const {id} = useParams();
