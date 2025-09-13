@@ -1,4 +1,3 @@
-import React from "react";
 import ProfileFooter from '../ProfileFooter/ProfileFooter';
 import './SavedRecipes.css';
 
@@ -27,7 +26,6 @@ const SavedRecipes = () => {
         ))}
       </div>
 
-      {/* bottom navigation bar */}
       <ProfileFooter />
     </div>
   );
