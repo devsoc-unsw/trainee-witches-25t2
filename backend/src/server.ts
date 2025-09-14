@@ -16,6 +16,7 @@ import {
   getAllRecipes,
   addComment
 } from "./routes/recipeDetails";
+import { getUserSavedRecipes } from "./routes/savedRecipes";
 
 const app = express();
 
@@ -32,5 +33,7 @@ app.post("/recipe/add", addRecipe);
 app.get("/recipes/:id", getRecipeById);
 app.get("/recipes", getAllRecipes);
 app.post("/recipes/:id/comments", addComment);
+
+app.get("/userSavedRecipes", getUserSavedRecipes);
 
 export default app;
